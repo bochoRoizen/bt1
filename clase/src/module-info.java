@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Scuola
+ *
+ */
+module clase {
+}
