@@ -26,10 +26,10 @@ public class Formulario {
 			codigo = 0;
 			
 			printf("Ingrese la accion\n"
-					+ "[1] iniciar sesion\n"
-					+ "[2] registrarse\n"
-					+ "[3] consulta de usario\n"
-					+ "[0] salir\n");
+					+ "[1] Iniciar sesion\n"
+					+ "[2] Registrarse\n"
+					+ "[3] Consulta de usuario\n"
+					+ "[0] Salir\n");
 			
 			input = scanner.nextInt();
 			
@@ -40,10 +40,10 @@ public class Formulario {
 				break;
 			
 			case 1:
-				printf("Usario: ");
+				printf("[String]Usario: ");
 				usario = scanner.next();
 				
-				printf("Password: ");
+				printf("[String]Password: ");
 				password = scanner.next();
 				
 				codigo = sql_funcs_.consultar_usario(usario);
@@ -62,7 +62,7 @@ public class Formulario {
 				break;
 				
 			case 2:
-				printf("Nuevo usario: ");
+				printf("[String]Nuevo usario: ");
 				usario = scanner.next();
 				
 				while(sql_funcs_.consultar_usario(usario) != 0) {
@@ -70,7 +70,7 @@ public class Formulario {
 					usario = scanner.next();
 				}
 				
-				printf("Nueva password: ");
+				printf("[String]Nueva password: ");
 				password = scanner.next();
 				
 				while(!validador.validar(password)) {
@@ -85,7 +85,7 @@ public class Formulario {
 				break;
 				
 			case 3:
-				printf("Ingrese codigo a consultar: ");
+				printf("[int]Ingrese codigo a consultar: ");
 				codigo = scanner.nextInt();
 				
 				if(sql_funcs_.consultar_codigo(codigo).length < 1 || sql_funcs_.consultar_codigo(codigo) == null) {
