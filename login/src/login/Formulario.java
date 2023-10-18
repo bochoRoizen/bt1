@@ -17,7 +17,7 @@ public class Formulario {
 		int input, codigo;
 		
 		validar_passwords validador = new validar_passwords();
-		sql_funcs sql_funcs_ = new sql_funcs();
+		base_de_datos sql_funcs_ = new base_de_datos();
 						
 		sql_funcs_.cargarDriver();
 		

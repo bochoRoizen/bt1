@@ -83,4 +83,17 @@ public class validar_passwords {
 		
 		return true;
 	}
+	
+	public String validar_error(String str) {
+		if(contar_vocales(str) < 1)
+			return "Se requieren vocales";
+		
+		if(!tres_consecutivas_validas(str))
+			return "No se permiten tres vocales/consonantes consecutivas";
+		
+		if(!ocurrencias_validas(str))
+			return "No se permiten dos ocurrencias consecutivas de la misma letra";
+		
+		return "Password valida";
+	}
 }
