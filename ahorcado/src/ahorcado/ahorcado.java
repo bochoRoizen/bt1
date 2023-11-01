@@ -3,12 +3,12 @@ package ahorcado;
 import java.util.Arrays;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class ahorcado {
@@ -288,6 +288,13 @@ public class ahorcado {
 	    if (!acierto) {
 	        numVidas++;
 	        if(numVidas > 6) {
+	        	lblAhorcadoGrafico.setVisible(false);
+			    lblPalabraAdivinar.setVisible(false);
+			    btnEmpezar.setVisible(true);
+			    txtPalabra.setVisible(true);
+			    lblLog.setText("");
+		    	toggleLetterButtons(false);
+		    	txtPalabra.setText("");
 	            lblLog.setText("¡Juego terminado! La palabra era: " + palabraSecreta);
 	        } else {
 	        	lblAhorcadoGrafico.setText(graficos.ahorcadoGraficos[numVidas]);
