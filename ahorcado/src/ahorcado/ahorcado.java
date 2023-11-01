@@ -288,13 +288,7 @@ public class ahorcado {
 	    if (!acierto) {
 	        numVidas++;
 	        if(numVidas > 6) {
-	        	lblAhorcadoGrafico.setVisible(false);
-			    lblPalabraAdivinar.setVisible(false);
-			    btnEmpezar.setVisible(true);
-			    txtPalabra.setVisible(true);
-			    lblLog.setText("");
-		    	toggleLetterButtons(false);
-		    	txtPalabra.setText("");
+	        	ResetJuego();
 	            lblLog.setText("¡Juego terminado! La palabra era: " + palabraSecreta);
 	        } else {
 	        	lblAhorcadoGrafico.setText(graficos.ahorcadoGraficos[numVidas]);
@@ -306,15 +300,20 @@ public class ahorcado {
 	    btnLetra.setVisible(false);
 
 	    if (String.valueOf(palabraDisplay).equals(palabraSecreta)) {
-		    lblAhorcadoGrafico.setVisible(false);
-		    lblPalabraAdivinar.setVisible(false);
-		    btnEmpezar.setVisible(true);
-		    txtPalabra.setVisible(true);
-		    lblLog.setText("");
-	    	toggleLetterButtons(false);
-	    	txtPalabra.setText("");
-	        lblLog.setText("¡Has ganado!");
+		    ResetJuego();
+	        lblLog.setText("¡Has ganado!\n"
+	        		+ "La palabra era: " + palabraSecreta.replace('/', ' '));
 	    }
+	}
+	
+	private void ResetJuego() {
+		lblAhorcadoGrafico.setVisible(false);
+	    lblPalabraAdivinar.setVisible(false);
+	    btnEmpezar.setVisible(true);
+	    txtPalabra.setVisible(true);
+	    lblLog.setText("");
+    	toggleLetterButtons(false);
+    	txtPalabra.setText("");
 	}
 	
 	private void SetupJuego(String palabra) {
@@ -322,8 +321,17 @@ public class ahorcado {
 		numVidas = 0;
 		
 		palabraSecreta = palabra.toUpperCase();
+		palabraSecreta = palabraSecreta.replace(' ', '/');
 	    palabraDisplay = new char[palabra.length()];
-	    Arrays.fill(palabraDisplay, '_');
+	    //Arrays.fill(palabraDisplay, '_');
+	    
+	    for(int i = 0; i < palabraSecreta.length(); i++) {
+	    	if(palabraSecreta.charAt(i) == '/') {
+	    		palabraDisplay[i] = '/';
+	    		continue;
+	    	}
+	    	palabraDisplay[i] = '_';
+	    }
 		
 	    lblAhorcadoGrafico.setText(graficos.ahorcadoGraficos[0]);
 	    lblAhorcadoGrafico.setVisible(true);
