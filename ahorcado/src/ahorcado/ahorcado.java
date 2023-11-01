@@ -1,7 +1,5 @@
 package ahorcado;
 
-import java.util.Arrays;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -330,7 +328,7 @@ public class ahorcado {
 	    		palabraDisplay[i] = '/';
 	    		continue;
 	    	}
-	    	palabraDisplay[i] = '_';
+	    	palabraDisplay[i] = '-';
 	    }
 		
 	    lblAhorcadoGrafico.setText(graficos.ahorcadoGraficos[0]);
